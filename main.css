@@ -1,0 +1,50 @@
+body {
+  font-family: 'Open Sans', Arial;
+  color: #454545;
+  font-size: 16px;
+  margin: 2em auto;
+  max-width: 800px;
+  padding: 1em;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: #000;
+  }
+
+  html body {
+    color: #d9d9d9;
+  }
+
+  html a {
+    color: #9ae1ff;
+  }
+
+  html a:visited {
+    color: #fbd6e8;
+  }
+}
+
+a {
+  color: #07a;
+}
+
+a:visited {
+  color: #941352;
+}
+
+li {
+  padding: 0.2em 0;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    text-align: left;
+  }
+}
+
+footer {
+  margin-top: 4em;
+}
