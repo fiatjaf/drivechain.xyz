@@ -1,503 +1,507 @@
 <!DOCTYPE html>
-<meta charset="utf-8" />
-<title>Drivechain: decentralized sidechains for Bitcoin</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="/main.css" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Drivechain: decentralized sidechains for Bitcoin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
 
-<h1>Drivechain</h1>
+  <body>
+    <h1>Drivechain</h1>
 
-From the combination of
-<div style="display: flex; justify-content: space-evenly">
-  <div style="margin-right: 20px">
-    <h2 style="display: inline-block">Hashrate Escrows</h2>
+    From the combination of
+    <div style="display: flex; justify-content: space-evenly">
+      <div style="margin-right: 20px">
+        <h2 style="display: inline-block">Hashrate Escrows</h2>
+        <p>
+          A mechanism defined by <a href="https://bips.xyz/300">BIP300</a> that
+          allows people to send money to specific sidechain "buckets" on the
+          mainchain, and then block producers to vote over a long period of 3~6
+          months to authorize withdrawals back from that bucket. There is also
+          <a href="https://github.com/rsksmart/bips/blob/master/BIP-R11.md"
+            >an alternative, compatible proposal</a
+          >.
+        </p>
+      </div>
+      <div>
+        and
+        <h2 style="display: inline-block">Blind Merged Mining</h2>
+        <p>
+          A mechanism that allows a sidechain to anchor itself on the Bitcoin chain
+          (therefore not needing any proof-of-work of its own) while also pushing
+          the sum of all its block fees into a single Bitcoin transaction that can
+          be earned by Bitcoin block producers without them even knowing. It can be
+          implemented using either
+          <a
+            href="https://gist.github.com/RubenSomsen/5e4be6d18e5fa526b17d8b34906b16a5"
+            >this simple method that uses</a
+          >
+          <a href="https://bips.xyz/118">BIP118</a> or the more involved
+          <a href="https://bips.xyz/301">BIP301</a> method.
+        </p>
+      </div>
+    </div>
+
     <p>
-      A mechanism defined by <a href="https://bips.xyz/300">BIP300</a> that
-      allows people to send money to specific sidechain "buckets" on the
-      mainchain, and then block producers to vote over a long period of 3~6
-      months to authorize withdrawals back from that bucket. There is also
-      <a href="https://github.com/rsksmart/bips/blob/master/BIP-R11.md"
-        >an alternative, compatible proposal</a
-      >.
+      <big><b>Drivechain</b></big> is born.
     </p>
-  </div>
-  <div>
-    and
-    <h2 style="display: inline-block">Blind Merged Mining</h2>
+
     <p>
-      A mechanism that allows a sidechain to anchor itself on the Bitcoin chain
-      (therefore not needing any proof-of-work of its own) while also pushing
-      the sum of all its block fees into a single Bitcoin transaction that can
-      be earned by Bitcoin block producers without them even knowing. It can be
-      implemented using either
-      <a
-        href="https://gist.github.com/RubenSomsen/5e4be6d18e5fa526b17d8b34906b16a5"
-        >this simple method that uses</a
+      Drivechain is the technique for the creation of
+      <b>decentralized 2-way peg sidechains</b> for Bitcoin. These sidechains can be
+      used to improve Bitcoin in every front, including
+      <a href="#privacy">privacy</a>, <a href="#scalability">scalability</a>,
+      <a href="#decentralization">decentralization</a> and
+      <a href="#security">security</a>, and also add many interesting features not
+      possible before that can make the world better and continue the revolution
+      started by Satoshi Nakamoto.
+      <a href="https://t.me/dcinsiders">Join us!</a>
+    </p>
+
+    <div
+      style="display: flex; flex-direction: column; align-items center; margin: 20px auto"
+    >
+      <video
+        id="video"
+        preload="auto"
+        controls
+        src="drivechain21.mp4"
+        poster="video-poster.png"
+      ></video>
+      <small style="text-align: right"
+        ><a href="https://www.youtube.com/watch?v=oga8Pwbq9M0" target="_blank"
+          >Watch this on YouTube</a
+        >, or see
+        <a href="https://www.drivechain.info/media/slides/bitcoin2021.pdf"
+          >slides</a
+        >
+        and
+        <a
+          href="https://www.drivechain.info/media/slides/bitcoin2021-transcript.pdf"
+          >transcript</a
+        >.</small
       >
-      <a href="https://bips.xyz/118">BIP118</a> or the more involved
-      <a href="https://bips.xyz/301">BIP301</a> method.
-    </p>
-  </div>
-</div>
+    </div>
 
-<p>
-  <big><b>Drivechain</b></big> is born.
-</p>
-
-<p>
-  Drivechain is the technique for the creation of
-  <b>decentralized 2-way peg sidechains</b> for Bitcoin. These sidechains can be
-  used to improve Bitcoin in every front, including
-  <a href="#privacy">privacy</a>, <a href="#scalability">scalability</a>,
-  <a href="#decentralization">decentralization</a> and
-  <a href="#security">security</a>, and also add many interesting features not
-  possible before that can make the world better and continue the revolution
-  started by Satoshi Nakamoto.
-  <a href="https://t.me/dcinsiders">Join us!</a>
-</p>
-
-<div
-  style="display: flex; flex-direction: column; align-items center; margin: 20px auto"
->
-  <video
-    id="video"
-    preload="auto"
-    controls
-    src="drivechain21.mp4"
-    poster="video-poster.png"
-  ></video>
-  <small style="text-align: right"
-    ><a href="https://www.youtube.com/watch?v=oga8Pwbq9M0" target="_blank"
-      >Watch this on YouTube</a
-    >, or see
-    <a href="https://www.drivechain.info/media/slides/bitcoin2021.pdf"
-      >slides</a
-    >
-    and
-    <a
-      href="https://www.drivechain.info/media/slides/bitcoin2021-transcript.pdf"
-      >transcript</a
-    >.</small
-  >
-</div>
-
-<h2>Things to read or watch</h2>
-<h3>From Paul Sztorc:</h3>
-<ul>
-  <li>
-    <a href="https://www.truthcoin.info/blog/drivechain/"
-      >Drivechain: the simple two way peg</a
-    >, the original blog post from 2015
-  </li>
-  <li>
-    <a
-      href="https://www.whatbitcoindid.com/podcast/should-drivechains-come-to-bitcoin"
-      >WhatBitcoinDid podcast episode</a
-    >, with Paul Sztorc about Drivechains
-  </li>
-  <li>
-    <a href="https://www.drivechain.info/literature/index.html"
-      >Literature page on drivechain.info</a
-    >, a collection of important articles and video/audio presentations
-  </li>
-  <li>
-    <a href="https://www.drivechain.info/peer-review/peer-review-new/"
-      >Answers to the two major criticisms of Drivechain:</a
-    >
-    <ol>
-      <li>"Miners can steal sidechain funds"; and</li>
-      <li>
-        "Merged minded sidechains increase pool overhead, making txn-censorship
-        easier".
-      </li>
-    </ol>
-  </li>
-</ul>
-<h3>From others:</h3>
-<ul>
-  <li>
-    <a
-      href="https://bitcoinmagazine.com/technical/drivechain-could-ossify-bitcoin-blockchain"
-      >Drivechain could ossify Bitcoin's blockchain for good</a
-    >, by Nikita Chashchinskii
-  </li>
-  <li>
-    <a
-      href="https://www.linkedin.com/pulse/20141117154558-1213-the-future-of-the-bitcoin-ecosystem-and-trustless-trust-why-i-invested-in-blockstream"
-      >Why I Invested in Blockstream</a
-    >, 2014 post on why sidechains matter, by Reid Hoffman
-  </li>
-  <li>
-    <a href="https://fiatjaf.com/drivechain.html">Drivechain</a>, explanation
-    and overview, by fiatjaf
-  </li>
-  <li>
-    <a href="https://www.youtube.com/watch?v=DhU6nsB5Z-0"
-      >All About Drivechains</a
-    >, a Van Wirdum Sjorsnado podcast episode with Ruben Somsen
-  </li>
-  <li>
-    <a href="https://bitslog.com/2016/10/07/drivechains-vs-sidechains/"
-      >Drivechains vs Sidechains</a
-    >, an explanation from Sergio Damien Lerner on how Drivechain is an strict
-    improvement over SPV sidechains (from the
-    <a href="https://blockstream.com/sidechains.pdf">Blockstream whitepaper</a
-    >).
-  </li>
-  <li>
-    <a href="https://lightco.in/2021/06/21/miners-can-steal/"
-      >A response to the "miners can steal" critique of Drivechain</a
-    >, by John Light
-  </li>
-  <li>
-    <a href="https://lightco.in/2022/06/15/miners-can-steal-2/"
-      >Another response to the "miners can steal" critique of Drivechain</a
-    >, by John Light
-  </li>
-  <li>
-    <a href="https://fiatjaf.com/95b92312.html"></a>, a short explanation of the
-    core of the "Drivechain will replace altcoins" argument, by fiatjaf
-  </li>
-</ul>
-
-<div style="display: flex; justify-content: space-evenly">
-  <div style="width: 100%">
-    <h2>How does Drivechain improve...</h2>
-
+    <h2>Things to read or watch</h2>
+    <h3>From Paul Sztorc:</h3>
     <ul>
-      <li id="privacy">
-        <b>Privacy</b>: by making it quick and cheap to use Zcash, Mimblewimble
-        and Monero-like sidechains, Bitcoin users have their privacy instantly
-        improved without the need for costly and cumbersome and barely effective
-        coinjoin methods.
+      <li>
+        <a href="https://www.truthcoin.info/blog/drivechain/"
+          >Drivechain: the simple two way peg</a
+        >, the original blog post from 2015
       </li>
-      <li id="scalability">
-        <b>Scalability</b>: Sidechains can scale Bitcoin horizontally. Even
-        without any new features, just by copying the Bitcoin code multiple
-        times its scale is multiplied, and without burdening the main chain.
-        This is sharding done right. <br />
-        It's also possible to take proven scalability technologies invented
-        elsewhere (client-side validation, zk-rollups, Lightning-like networks
-        or a mix of all these) and apply them to Bitcoin directly through
-        sidechains.
+      <li>
+        <a
+          href="https://www.whatbitcoindid.com/podcast/should-drivechains-come-to-bitcoin"
+          >WhatBitcoinDid podcast episode</a
+        >, with Paul Sztorc about Drivechains
       </li>
-      <li id="decentralization">
-        <b>Decentralization</b>: By using sidechains for scalability and
-        features we can keep the Bitcoin chain small and lightweight, and maybe
-        even reduce its block size. And then users of either combination of
-        sidechains can choose the sidechain they want to run alongside the very
-        small Bitcoin mainchain.
+      <li>
+        <a href="https://www.drivechain.info/literature/index.html"
+          >Literature page on drivechain.info</a
+        >, a collection of important articles and video/audio presentations
       </li>
-      <li id="security">
-        <b>Security</b>: By turning all block fees from a sidechain into a
-        single transaction with a ton of fees to the Bitcoin miners, hashrate is
-        increased, mining is more decentralized the Bitcoin chain is more
-        secure. It's the solution to the unsolved problem of the shrinking block
-        reward.
-      </li>
-      <li id="innovation">
-        <b>Innovation</b>: So far we have only seen innovations in the
-        blockchain space done by literal scammers. Once there is an environment
-        in which honest and smart people can operate we will probably be
-        surprised about the new things that will show up.
+      <li>
+        <a href="https://www.drivechain.info/peer-review/peer-review-new/"
+          >Answers to the two major criticisms of Drivechain:</a
+        >
+        <ol>
+          <li>"Miners can steal sidechain funds"; and</li>
+          <li>
+            "Merged minded sidechains increase pool overhead, making txn-censorship
+            easier".
+          </li>
+        </ol>
       </li>
     </ul>
-  </div>
-  <div style="margin-left: 20px; width: 100%">
-    <h2>Possible Sidechains</h2>
-
-    <p>
-      A list of some good candidates of things that can be enabled as sidechains
-      once BIP300 is activated on Bitcoin.
-    </p>
-
+    <h3>From others:</h3>
     <ul>
       <li>
-        <a href="https://bitcoinhivemind.com/">Hivemind</a>, decentralized
-        prediction markets that will revolutionize the emergence and diffusion
-        of knowledge in society by making cheap talk expensive.
+        <a
+          href="https://bitcoinmagazine.com/technical/drivechain-could-ossify-bitcoin-blockchain"
+          >Drivechain could ossify Bitcoin's blockchain for good</a
+        >, by Nikita Chashchinskii
       </li>
       <li>
-        <b>Namecoin</b>, or some other form of blockchain for names, so we can
-        do with ICANN what Bitcoin is doing to Central Banks (<a
-          href="https://www.truthcoin.info/blog/bitnames/"
-          >an idea of what that could look like</a
+        <a
+          href="https://www.linkedin.com/pulse/20141117154558-1213-the-future-of-the-bitcoin-ecosystem-and-trustless-trust-why-i-invested-in-blockstream"
+          >Why I Invested in Blockstream</a
+        >, 2014 post on why sidechains matter, by Reid Hoffman
+      </li>
+      <li>
+        <a href="https://fiatjaf.com/drivechain.html">Drivechain</a>, explanation
+        and overview, by fiatjaf
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=DhU6nsB5Z-0"
+          >All About Drivechains</a
+        >, a Van Wirdum Sjorsnado podcast episode with Ruben Somsen
+      </li>
+      <li>
+        <a href="https://bitslog.com/2016/10/07/drivechains-vs-sidechains/"
+          >Drivechains vs Sidechains</a
+        >, an explanation from Sergio Damien Lerner on how Drivechain is an strict
+        improvement over SPV sidechains (from the
+        <a href="https://blockstream.com/sidechains.pdf">Blockstream whitepaper</a
         >).
       </li>
       <li>
-        <a
-          href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2023-June/021732.html"
-          >Prime</a
-        >
-        or
-        <a
-          href="https://gist.github.com/RobinLinus/d036511015caea5a28514259a1bab119"
-          >zkCoins</a
-        >, two proposals for highly-scalable money transfer systems, powered by
-        client-side validation, that only require a blockchain for very
-        lightweight double-spend prevention, but not for storing any long-term
-        data or global state.
+        <a href="https://lightco.in/2021/06/21/miners-can-steal/"
+          >A response to the "miners can steal" critique of Drivechain</a
+        >, by John Light
       </li>
       <li>
-        <a href="https://www.truthcoin.info/blog/zside-meltcast/">zSide</a>,
-        Zcash fork that is already running as a sidechain on Drivenet to finally
-        solve Bitcoin privacy problems. Also comes with decentralized and
-        user-friendly melt/cast function.
+        <a href="https://lightco.in/2022/06/15/miners-can-steal-2/"
+          >Another response to the "miners can steal" critique of Drivechain</a
+        >, by John Light
       </li>
       <li>
-        <a href="https://www.rsk.co/">RSK</a>, Ethereum-compatible federated
-        sidechain that already exists but wants to turn itself into a
-        drivechain. Can be used as the hotbed of new ideas.
-      </li>
-      <li>
-        <b>Monero</b>, some people prefer this one, it has some real-world usage
-        already and is even displacing Bitcoin in many darknet places.
-      </li>
-      <li>
-        <a href="https://www.truthcoin.info/blog/thunder/">Thunder</a>, a
-        reasonable proposal for large-block sidechains for scaling.
-      </li>
-      <li>
-        <a href="https://sia.tech/">Sia</a>, despite some weird shitcoining
-        mixed in (that can be discarded), it's a simple design (a blockchain
-        market for contracts and reputation) that solves a real problem (storing
-        files) and apparently has proven to work over the years.
+        <a href="https://fiatjaf.com/95b92312.html"></a>, a short explanation of the
+        core of the "Drivechain will replace altcoins" argument, by fiatjaf
       </li>
     </ul>
-  </div>
-</div>
 
-<h2>Community Opinions</h2>
+    <div style="display: flex; flex-direction: column; justify-content: space-evenly">
+      <div style="width: 100%">
+        <h2>How does Drivechain improve...</h2>
 
-<p>Important people and what they think about Drivechain.</p>
+        <ul>
+          <li id="privacy">
+            <b>Privacy</b>: by making it quick and cheap to use Zcash, Mimblewimble
+            and Monero-like sidechains, Bitcoin users have their privacy instantly
+            improved without the need for costly and cumbersome and barely effective
+            coinjoin methods.
+          </li>
+          <li id="scalability">
+            <b>Scalability</b>: Sidechains can scale Bitcoin horizontally. Even
+            without any new features, just by copying the Bitcoin code multiple
+            times its scale is multiplied, and without burdening the main chain.
+            This is sharding done right. <br />
+            It's also possible to take proven scalability technologies invented
+            elsewhere (client-side validation, zk-rollups, Lightning-like networks
+            or a mix of all these) and apply them to Bitcoin directly through
+            sidechains.
+          </li>
+          <li id="decentralization">
+            <b>Decentralization</b>: By using sidechains for scalability and
+            features we can keep the Bitcoin chain small and lightweight, and maybe
+            even reduce its block size. And then users of either combination of
+            sidechains can choose the sidechain they want to run alongside the very
+            small Bitcoin mainchain.
+          </li>
+          <li id="security">
+            <b>Security</b>: By turning all block fees from a sidechain into a
+            single transaction with a ton of fees to the Bitcoin miners, hashrate is
+            increased, mining is more decentralized the Bitcoin chain is more
+            secure. It's the solution to the unsolved problem of the shrinking block
+            reward.
+          </li>
+          <li id="innovation">
+            <b>Innovation</b>: So far we have only seen innovations in the
+            blockchain space done by literal scammers. Once there is an environment
+            in which honest and smart people can operate we will probably be
+            surprised about the new things that will show up.
+          </li>
+        </ul>
+      </div>
+      <div style="margin-top: 20px; width: 100%">
+        <h2>Possible Sidechains</h2>
 
-<table>
-  <tr>
-    <td>Adam Back</td>
-    <td>🟩</td>
-    <td>
-      <a href="https://twitter.com/adam3us/status/1402565259689345025"
-        >"Yes, of course!"</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Luke Dashjr</td>
-    <td>⬜️</td>
-    <td>
-      <a
-        href="https://nostr.com/nevent1qqspmdyuvyqtapaf82j3j49l8fn5dhd20q3dxzvah62eunme3elc8ycpp4mhxue69uhkummn9ekx7mqzyr7at68k4cxms9a7pdca5gzf3svqd95d3fj9j4vuyj0nyta8x3j2wqcyqqqqqqgr6hxpr"
-        >"I'm neutral on drivechain."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Mr Hodl</td>
-    <td>⬜️</td>
-    <td>
-      <a href="https://twitter.com/LayerTwoLabs/status/1690045472118038528"
-        >"I personally don't really care. There are other people who are against
-        them."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Giacomo Zucco</td>
-    <td>🟩</td>
-    <td>
-      <a href="https://t.me/lightningwallet/234397">"I like Drivechain"</a>
-    </td>
-  </tr>
-  <tr>
-    <td>Eric Wall</td>
-    <td>🟩</td>
-    <td>
-      <a href="https://twitter.com/ercwl/status/1383786413632622595"
-        >"Yeah, I like drivechains better."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Robin Linus</td>
-    <td>🟩</td>
-    <td>
-      <a href="https://t.me/spacechains/29021"
-        >"I think the exciting thing about Drivechains is bip300, which solves
-        the 2-way peg."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Anton Kumaigorodski</td>
-    <td>🟩</td>
-    <td>
-      <a href="https://t.me/lightningwallet/11374"
-        >"Here's another project which I think is more critical than LN for
-        bitcoin's long term survival."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Jimmy Song</td>
-    <td>🟩</td>
-    <td>
-      <a
-        href="https://jimmysong.medium.com/how-to-give-everyone-more-control-b3391c0f7816"
-        >"The good news is that Drivechains don’t require (less) trusted
-        entities and the code is almost done. The bad news is that Drivechains
-        require a soft fork."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Rusty Russell</td>
-    <td>🟩</td>
-    <td>
-      <a
-        href="https://lightningjunkies.net/exploring-worlds-of-lightning-development-lnj046/"
-        >"The nice thing about Drivechains is that they're isolated, right? You
-        don't have to use it if you don't want to, they exist and it doesn't
-        damage Bitcoin in any way. So from like a high level I'm broadly
-        supportive, but, I'm not in the weeds and can't give any like deep
-        technical critiques."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Sergio Demian Lerner</td>
-    <td>🟩</td>
-    <td>
-      <a href="https://twitter.com/SDLerner/status/1339239472135876608"
-        >"I hope Bitcoin someday soft-forks to add Drivechain"</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Hasu</td>
-    <td>🟩</td>
-    <td>
-      <a href="https://twitter.com/hasufl/status/1402219987763355649"
-        >"Drivechain: good"</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Hampus</td>
-    <td>🟩</td>
-    <td>
-      <a href="https://twitter.com/hampus_s/status/1628144388244377600"
-        >"My favorite solution for this is Drivechains BIP300/301 + an
-        interoperable Lightning Network."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>calle</td>
-    <td>🟩</td>
-    <td>
-      <a href="https://twitter.com/callebtc/status/1674923314446229504"
-        >"I support BIP-300!"</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Peter Todd</td>
-    <td>🟥</td>
-    <td>
-      <a href="https://twitter.com/peterktodd/status/770914421900206080"
-        >"Just use an alt currency."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>John Carvalho</td>
-    <td>🟥</td>
-    <td>
-      <a href="https://twitter.com/BitcoinErrorLog/status/770959965343408128"
-        >"Sidechains are inferior to altcoins."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Sjors Provoost</td>
-    <td>🟥</td>
-    <td>
-      <a href="https://www.youtube.com/watch?v=DhU6nsB5Z-0"
-        >"I'm worried it will bring politics and drama from altcoins to Bitcoin.
-        This doesn't happen today because since altcoins are viable the drama
-        people go there and have their drama."</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Ben, the Carman</td>
-    <td>🟥</td>
-    <td>
-      <a href="https://twitter.com/benthecarman/status/1412080678183780352"
-        >"There's a million other ways to do side chains, I don't see why we
-        need to soft fork another way in"</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Torkel Rogstad</td>
-    <td>🟩</td>
-    <td>
-      <a href="https://twitter.com/torkelrogstad/status/1512498148907888643"
-        >"We desperately need to take a long and hard look in the mirror, and
-        start doing things differently. I think starting a more serious and
-        thorough discussion about BIP300 (Drivechain) is the right place to
-        start. "</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Metamick</td>
-    <td>🟩</td>
-    <td>
-      <a
-        href="https://nostr.com/nevent1qqs27png8kwes4uycaj8f6hm44p8z3l8stnax90pqtyjmdtdsz5pp4spz3mhxue69uhhyetvv9ujuerpd46hxtnfdu7063xu"
-        >"If you do the research, it makes so much sense to do drivechains."</a
-      >
-    </td>
-  </tr>
-</table>
+        <p>
+          A list of some good candidates of things that can be enabled as sidechains
+          once BIP300 is activated on Bitcoin.
+        </p>
 
-<h2>Drivechain Implementation and Testnet</h2>
-<p>
-  Visit the
-  <a href="https://www.drivechain.info/releases/index.html"
-    >Releases page on drivechain.info</a
-  >
-  or <a href="http://release.drivechain.info/">this directory</a>.
-</p>
+        <ul>
+          <li>
+            <a href="https://bitcoinhivemind.com/">Hivemind</a>, decentralized
+            prediction markets that will revolutionize the emergence and diffusion
+            of knowledge in society by making cheap talk expensive.
+          </li>
+          <li>
+            <b>Namecoin</b>, or some other form of blockchain for names, so we can
+            do with ICANN what Bitcoin is doing to Central Banks (<a
+              href="https://www.truthcoin.info/blog/bitnames/"
+              >an idea of what that could look like</a
+            >).
+          </li>
+          <li>
+            <a
+              href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2023-June/021732.html"
+              >Prime</a
+            >
+            or
+            <a
+              href="https://gist.github.com/RobinLinus/d036511015caea5a28514259a1bab119"
+              >zkCoins</a
+            >, two proposals for highly-scalable money transfer systems, powered by
+            client-side validation, that only require a blockchain for very
+            lightweight double-spend prevention, but not for storing any long-term
+            data or global state.
+          </li>
+          <li>
+            <a href="https://www.truthcoin.info/blog/zside-meltcast/">zSide</a>,
+            Zcash fork that is already running as a sidechain on Drivenet to finally
+            solve Bitcoin privacy problems. Also comes with decentralized and
+            user-friendly melt/cast function.
+          </li>
+          <li>
+            <a href="https://www.rsk.co/">RSK</a>, Ethereum-compatible federated
+            sidechain that already exists but wants to turn itself into a
+            drivechain. Can be used as the hotbed of new ideas.
+          </li>
+          <li>
+            <b>Monero</b>, some people prefer this one, it has some real-world usage
+            already and is even displacing Bitcoin in many darknet places.
+          </li>
+          <li>
+            <a href="https://www.truthcoin.info/blog/thunder/">Thunder</a>, a
+            reasonable proposal for large-block sidechains for scaling.
+          </li>
+          <li>
+            <a href="https://sia.tech/">Sia</a>, despite some weird shitcoining
+            mixed in (that can be discarded), it's a simple design (a blockchain
+            market for contracts and reputation) that solves a real problem (storing
+            files) and apparently has proven to work over the years.
+          </li>
+        </ul>
+      </div>
+    </div>
 
-<p>
-  There is
-  <a href="https://www.youtube.com/watch?v=N33iJK2FdpE"
-    >a video tutorial for using zSide</a
-  >
-  and
-  <a href="https://www.drivechain.info/blog/usage-tour/"
-    >a Drivenet written tutorial with many screenshots</a
-  >
-  and
-  <a href="https://www.drivechain.info/blog/adding-a-sidechain/"
-    >a tutorial specific for adding sidechains</a
-  >.
-</p>
-<img
-  style="width: 100%"
-  src="https://www.drivechain.info/media/screenshots/withdrawals.png"
-/>
+    <h2>Community Opinions</h2>
 
-<footer>
-  <p>
-    If you want to include or fix something in this website or you have any
-    suggestions or criticism, go to
-    <a href="https://github.com/fiatjaf/drivechain.xyz">the GitHub repo</a> or
-    talk about it on <a href="https://t.me/dcinsiders">Telegram</a>.
-  </p>
-</footer>
+    <p>Important people and what they think about Drivechain.</p>
+
+    <table>
+      <tr>
+        <td>Adam Back</td>
+        <td>🟩</td>
+        <td>
+          <a href="https://twitter.com/adam3us/status/1402565259689345025"
+            >"Yes, of course!"</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Luke Dashjr</td>
+        <td>⬜️</td>
+        <td>
+          <a
+            href="https://nostr.com/nevent1qqspmdyuvyqtapaf82j3j49l8fn5dhd20q3dxzvah62eunme3elc8ycpp4mhxue69uhkummn9ekx7mqzyr7at68k4cxms9a7pdca5gzf3svqd95d3fj9j4vuyj0nyta8x3j2wqcyqqqqqqgr6hxpr"
+            >"I'm neutral on drivechain."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Mr Hodl</td>
+        <td>⬜️</td>
+        <td>
+          <a href="https://twitter.com/LayerTwoLabs/status/1690045472118038528"
+            >"I personally don't really care. There are other people who are against
+            them."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Giacomo Zucco</td>
+        <td>🟩</td>
+        <td>
+          <a href="https://t.me/lightningwallet/234397">"I like Drivechain"</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Eric Wall</td>
+        <td>🟩</td>
+        <td>
+          <a href="https://twitter.com/ercwl/status/1383786413632622595"
+            >"Yeah, I like drivechains better."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Robin Linus</td>
+        <td>🟩</td>
+        <td>
+          <a href="https://t.me/spacechains/29021"
+            >"I think the exciting thing about Drivechains is bip300, which solves
+            the 2-way peg."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Anton Kumaigorodski</td>
+        <td>🟩</td>
+        <td>
+          <a href="https://t.me/lightningwallet/11374"
+            >"Here's another project which I think is more critical than LN for
+            bitcoin's long term survival."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Jimmy Song</td>
+        <td>🟩</td>
+        <td>
+          <a
+            href="https://jimmysong.medium.com/how-to-give-everyone-more-control-b3391c0f7816"
+            >"The good news is that Drivechains don’t require (less) trusted
+            entities and the code is almost done. The bad news is that Drivechains
+            require a soft fork."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Rusty Russell</td>
+        <td>🟩</td>
+        <td>
+          <a
+            href="https://lightningjunkies.net/exploring-worlds-of-lightning-development-lnj046/"
+            >"The nice thing about Drivechains is that they're isolated, right? You
+            don't have to use it if you don't want to, they exist and it doesn't
+            damage Bitcoin in any way. So from like a high level I'm broadly
+            supportive, but, I'm not in the weeds and can't give any like deep
+            technical critiques."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Sergio Demian Lerner</td>
+        <td>🟩</td>
+        <td>
+          <a href="https://twitter.com/SDLerner/status/1339239472135876608"
+            >"I hope Bitcoin someday soft-forks to add Drivechain"</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Hasu</td>
+        <td>🟩</td>
+        <td>
+          <a href="https://twitter.com/hasufl/status/1402219987763355649"
+            >"Drivechain: good"</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Hampus</td>
+        <td>🟩</td>
+        <td>
+          <a href="https://twitter.com/hampus_s/status/1628144388244377600"
+            >"My favorite solution for this is Drivechains BIP300/301 + an
+            interoperable Lightning Network."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>calle</td>
+        <td>🟩</td>
+        <td>
+          <a href="https://twitter.com/callebtc/status/1674923314446229504"
+            >"I support BIP-300!"</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Peter Todd</td>
+        <td>🟥</td>
+        <td>
+          <a href="https://twitter.com/peterktodd/status/770914421900206080"
+            >"Just use an alt currency."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>John Carvalho</td>
+        <td>🟥</td>
+        <td>
+          <a href="https://twitter.com/BitcoinErrorLog/status/770959965343408128"
+            >"Sidechains are inferior to altcoins."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Sjors Provoost</td>
+        <td>🟥</td>
+        <td>
+          <a href="https://www.youtube.com/watch?v=DhU6nsB5Z-0"
+            >"I'm worried it will bring politics and drama from altcoins to Bitcoin.
+            This doesn't happen today because since altcoins are viable the drama
+            people go there and have their drama."</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Ben, the Carman</td>
+        <td>🟥</td>
+        <td>
+          <a href="https://twitter.com/benthecarman/status/1412080678183780352"
+            >"There's a million other ways to do side chains, I don't see why we
+            need to soft fork another way in"</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Torkel Rogstad</td>
+        <td>🟩</td>
+        <td>
+          <a href="https://twitter.com/torkelrogstad/status/1512498148907888643"
+            >"We desperately need to take a long and hard look in the mirror, and
+            start doing things differently. I think starting a more serious and
+            thorough discussion about BIP300 (Drivechain) is the right place to
+            start. "</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Metamick</td>
+        <td>🟩</td>
+        <td>
+          <a
+            href="https://nostr.com/nevent1qqs27png8kwes4uycaj8f6hm44p8z3l8stnax90pqtyjmdtdsz5pp4spz3mhxue69uhhyetvv9ujuerpd46hxtnfdu7063xu"
+            >"If you do the research, it makes so much sense to do drivechains."</a
+          >
+        </td>
+      </tr>
+    </table>
+
+    <h2>Drivechain Implementation and Testnet</h2>
+    <p>
+      Visit the
+      <a href="https://www.drivechain.info/releases/index.html"
+        >Releases page on drivechain.info</a
+      >
+      or <a href="http://release.drivechain.info/">this directory</a>.
+    </p>
+
+    <p>
+      There is
+      <a href="https://www.youtube.com/watch?v=N33iJK2FdpE"
+        >a video tutorial for using zSide</a
+      >
+      and
+      <a href="https://www.drivechain.info/blog/usage-tour/"
+        >a Drivenet written tutorial with many screenshots</a
+      >
+      and
+      <a href="https://www.drivechain.info/blog/adding-a-sidechain/"
+        >a tutorial specific for adding sidechains</a
+      >.
+    </p>
+    <img
+      style="width: 100%"
+      src="https://www.drivechain.info/media/screenshots/withdrawals.png"
+    />
+
+    <footer>
+      <p>
+        If you want to include or fix something in this website or you have any
+        suggestions or criticism, go to
+        <a href="https://github.com/fiatjaf/drivechain.xyz">the GitHub repo</a> or
+        talk about it on <a href="https://t.me/dcinsiders">Telegram</a>.
+      </p>
+    </footer>
+</body>
 
 <style>
   table {
