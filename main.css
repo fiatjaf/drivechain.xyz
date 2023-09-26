@@ -39,9 +39,19 @@ li {
   padding: 0.2em 0;
 }
 
+.possibleSidechains {
+  margin-left: 20px;
+}
+
 @media screen and (max-width: 500px) {
   body {
     text-align: left;
+  }
+  .mobileColumn {
+    flex-direction: column; 
+  }
+  .possibleSidechains {
+    margin-left: 0px;
   }
 }
 
