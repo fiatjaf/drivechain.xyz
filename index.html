@@ -491,53 +491,100 @@ From the combination of
 />
 
 <h2 id="against">Arguments against Drivechain</h2>
+<p>
+  These are some of the common arguments voiced against Drivechain. They have
+  been answered innumerable times and you can find the answers on the articles
+  and videos listed above, but here are some quick answers again:
+</p>
 <ol>
   <li>
-    <b>A vast majority of miners can steal</b>
-    <p></p>
+    <b>A vast majority of miners can collude to steal</b>
+    <p>
+      They are very unlikely to do because it's not a reasonable economic
+      decision and it would hurt their businesses. Sidechains are likely to have
+      a relatively high ratio of money being moved to money that is just parked,
+      so it's likely to produce a lot of fees (that would then go to Bitcoin
+      miners) for a small amount of coins in it. It will never be advisable for
+      anyone to send their life-savings to a sidechain, so even in the case of a
+      theft losses are likely to be minimal, much smaller than the losses people
+      have had from running Lightning channels or buying shitcoins in the past,
+      and the Bitcoin protocol has never prohibited these activities.
+    </p>
   </li>
   <li>
     <b>A minority of miners can keep funds hostage</b>
-    <p></p>
+    <p>
+      That is the security mechanism that prevents funds from being stolen by a
+      simple majority. A minority of miners can also create chaos on the Bitcoin
+      main chain by orphaning blocks and threatening the profits of the majority
+      miners, but that would come with a huge cost, therefore it's not expected
+      that they do it. The same rationale applies to keeping funds hostage.
+    </p>
   </li>
   <li>
     <b>MEV on sidechains will affect Bitcoin mining incentives</b>
-    <p></p>
+    <p>
+      Because of blind merge-mining Bitcoin miners just need to grab the
+      sidechain block hash that is paying more fees on Bitcoin and include that,
+      they don't have to care about MEV. If the sidechain has any MEV
+      opportunities these are to be captured by sidechain block builders who
+      will just translate them into fees for the Bitcoin miners.
+    </p>
   </li>
   <li>
     <b>Merge-mining creates miner centralization</b>
-    <p></p>
+    <p>
+      In non-blind merge-mining there is indeed an added fixed cost for Bitcoin
+      miners to keep up with the sidechain nodes, as it happens today with
+      Namecoin, RSK, Stacks and others. That cost can be assumed to be
+      negligible though, and it's something that already happens today. With
+      blind merge-mining the cost falls to zero as Bitcoin miners can capture
+      ~99% percent of the value created on sidechains without having to run a
+      sidechain node or care about building its blocks.
+    </p>
   </li>
   <li>
     <b>Sidechain fees can cause fee sniping problems</b>
-    <p></p>
+    <p>
+      If there are multiple sidechains and constant activity the fees coming
+      from these sidechains are likely to not have huge bumps such that it makes
+      more sense for everybody to go on and wait for the next sidechain block
+      paying fees anyway.
+    </p>
   </li>
   <li>
     <b>Politics of the sidechain will contaminate Bitcoin</b>
-    <p></p>
+    <p>
+      There is no reason to believe that will happen. Bitcoin users do not have
+      to care about what happens in the sidechains, regardless of what is the
+      decision from miners: they can either decide one way or another, or just
+      follow what most people running sidechain nodes decide.
+    </p>
   </li>
   <li>
     <b>Sidechain blocks will be empty, thus not pay much in fees</b>
-    <p></p>
+    <p>
+      They may be empty in the beginning but miners will still want to keep them
+      until they get enough activity. If after a long time it has become clear
+      that a specific sidechain is not being used it can be transitioned to
+      another without users losing funds, or the funds can be returned in a
+      final withdraw. Even if miners decide to pocket the funds, it's not as if
+      people would have their life savings on this very new experimental
+      sidechain anyway, they are likely to lose less on this than by running a
+      Lightning node and getting tons of force-closes and uneconomical HTLCs.
+    </p>
   </li>
   <li>
     <b
       >Even if they pay fees and bring benefits to Bitcoin, with too much money
       deposited the sidechains become honeypots</b
     >
-    <p></p>
-  </li>
-  <li>
-    <b></b>
-    <p></p>
-  </li>
-  <li>
-    <b></b>
-    <p></p>
-  </li>
-  <li>
-    <b></b>
-    <p></p>
+    <p>
+      No one can steal from them without getting >70% of the hashrate and going
+      through the very long 6-month withdraw process, so it's not like a
+      custodial exchange whose server can be invaded or whose owner can be
+      kidnapped and coins stolen.
+    </p>
   </li>
 </ol>
 
